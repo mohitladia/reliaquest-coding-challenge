@@ -1,0 +1,20 @@
+# curl -X POST http://localhost:8112/api/v1/employee
+#  -H "Content-Type: application/json"
+#  -d '{
+#    "name": "Jill Jenkins",
+#    "salary": 139082,
+#    "age": 48,
+#    "title": "Financial Advisor"
+#  }'
+POST http://localhost:8111/employees
+Content-Type: application/json
+
+{
+  "employee_name": "JillP Jenkins",
+  "employee_salary": 139582,
+  "employee_age": 58,
+  "employee_title": "Financial Advisor"
+}
+
+###
+

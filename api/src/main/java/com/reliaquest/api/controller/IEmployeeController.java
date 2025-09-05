@@ -1,6 +1,8 @@
 package com.reliaquest.api.controller;
 
 import java.util.List;
+
+import com.reliaquest.api.model.Employee;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +24,6 @@ public interface IEmployeeController<Entity, Input> {
 
     @GetMapping()
     ResponseEntity<List<Entity>> getAllEmployees();
-
-
 
     @GetMapping("/search/{searchString}")
     ResponseEntity<List<Entity>> getEmployeesByNameSearch(@PathVariable String searchString);
