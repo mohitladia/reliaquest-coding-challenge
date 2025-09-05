@@ -10,13 +10,13 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
+import static org.springframework.http.HttpMethod.DELETE;
 
 @Component
 @RequiredArgsConstructor
@@ -53,10 +53,20 @@ public class EmployeeClient {
                 .orElseThrow(() -> new RuntimeException("Employee creation failed"));
     }
 
-    public String deleteEmployee(String id) {
-        String url = BASE_URL + "/" + id;
-        log.info("Deleting employee by ID: {}", id);
-        restTemplate.delete(url);
-        return id;
+    public String deleteEmployee(String name) {
+        log.info("Deleting employee by name: {}", name);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        Map<String, String> body = new HashMap<>();
+        body.put("name", name);
+        HttpEntity<Map<String, String>> request = new HttpEntity<>(body, headers);
+        ResponseEntity<String> response = restTemplate.exchange(
+                BASE_URL,
+                DELETE,
+                request,
+                String.class
+        );
+        log.info("Deleting employee by name={}, response={}", name, response);
+        return name;
     }
 }

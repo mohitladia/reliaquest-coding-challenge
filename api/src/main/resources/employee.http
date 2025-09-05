@@ -14,9 +14,9 @@ GET http://localhost:8111/employees
 Accept: application/json
 
 ### Get Employee By ID
-GET http://localhost:8111/employees/d005f39a-beb8-4390-afec-fd54e91d94ee
+GET http://localhost:8111/employees/bd523a77-8631-4212-a9b7-915b5c278c03
 Accept: application/json
 
 ### Delete Employee
-DELETE http://localhost:8112/api/v1/employee/d005f39a-beb8-4390-afec-fd54e91d94ee
-Accept: application/json
+DELETE http://localhost:8111/employees/0d06cf04-5107-43db-85be-5d82f5405bc6
+

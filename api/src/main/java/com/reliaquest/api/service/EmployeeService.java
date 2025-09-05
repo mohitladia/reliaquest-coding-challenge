@@ -58,6 +58,7 @@ public class EmployeeService {
     }
 
     public String deleteEmployeeById(String id) {
-        return client.deleteEmployee(id);
+        Employee employee = client.getEmployeeById(id);
+        return client.deleteEmployee(employee.getName());
     }
 }
