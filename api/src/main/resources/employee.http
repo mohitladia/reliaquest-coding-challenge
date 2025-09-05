@@ -1,20 +1,22 @@
-# curl -X POST http://localhost:8112/api/v1/employee
-#  -H "Content-Type: application/json"
-#  -d '{
-#    "name": "Jill Jenkins",
-#    "salary": 139082,
-#    "age": 48,
-#    "title": "Financial Advisor"
-#  }'
-POST http://localhost:8111/employees
+### Create Employee
+POST http://localhost:8112/api/v1/employee
 Content-Type: application/json
 
 {
-  "employee_name": "JillP Jenkins",
-  "employee_salary": 139582,
-  "employee_age": 58,
-  "employee_title": "Financial Advisor"
+  "name": "Jill Jenkins",
+  "salary": 139082,
+  "age": 48,
+  "title": "Financial Advisor"
 }
 
-###
+### Get All Employees
+GET http://localhost:8111/employees
+Accept: application/json
 
+### Get Employee By ID
+GET http://localhost:8111/employees/d005f39a-beb8-4390-afec-fd54e91d94ee
+Accept: application/json
+
+### Delete Employee
+DELETE http://localhost:8112/api/v1/employee/d005f39a-beb8-4390-afec-fd54e91d94ee
+Accept: application/json
